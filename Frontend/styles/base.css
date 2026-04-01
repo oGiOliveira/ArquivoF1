@@ -1,49 +1,74 @@
 :root {
     --background: #e4f1e6;
-    --primary: #bde9b2;
+    --primary: #1e1c1c;
     --secondary: #1e2634;
-    --hover: #7a90c1c5;
-    --textPrimary: #161414;
+    --hover: #a9b4cd69;
+    --textPrimary: #f2ecec;
     --textGreen: #00bf63;
     --textRed: #ef4136;
-    --colorButton: #2d8bbab6;
 
     --fontPrimary: 'Roboto', sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0;
     background: var(--background);
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vw;
-    height: 90vh;
-    gap: 4vh;
-    padding: 1rem;
+header {
+    width: 100%;
+    height: 8vh;
     background: var(--primary);
+    background: linear-gradient(90deg, rgba(239, 65, 54, 1) 0%,  rgb(22, 21, 21) 20%);
 }
 
-h1 {
-    font-size: 2rem;
+.Logo {
+    font-family: var(--fontPrimary);
     color: var(--textPrimary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.vermelho {
+    color: var(--textRed);
 }
 
-.texto {
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+ul {
+    display: flex;
+    height: 100%;
+    width: 50vw;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 15vw;
+    font-family: var(--fontPrimary);
+    color: var(--textPrimary);
     font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color, background 0.3s ease;
 }
 
-.fonte {
-    font-size: 1rem;
-    color: var(--textPrimary);
+li:hover {
+    background: var(--hover);
 }
 
-img {
-    width: 20vw;
-    height: 20vh;
+a {
+    text-decoration: none;
+    color: inherit;
 }

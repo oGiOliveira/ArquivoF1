@@ -22,8 +22,8 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('nomeDaPagina/', include('myapp.urls')), # url do app
-    path('', lambda request: redirect('nomeDaPagina/')),
+    path('ArquivoF1/Noticias', include('myapp.urls')), # url do app
+    path('', lambda request: redirect('newsPage')), #redireciona para  a pagina principal
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Adicionar Isto
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Adicionar Isto

@@ -3,5 +3,5 @@ from myapp import views
 
 #urls do site vem aqui
 urlpatterns = [
-    path('', views.mainPage, name='main'), 
+    path('', views.newsPage, name='newsPage'), 
 ]
