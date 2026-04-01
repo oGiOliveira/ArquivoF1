@@ -1,0 +1,49 @@
+:root {
+    --background: #e4f1e6;
+    --primary: #bde9b2;
+    --secondary: #1e2634;
+    --hover: #7a90c1c5;
+    --textPrimary: #161414;
+    --textGreen: #00bf63;
+    --textRed: #ef4136;
+    --colorButton: #2d8bbab6;
+
+    --fontPrimary: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 90vh;
+    gap: 4vh;
+    padding: 1rem;
+    background: var(--primary);
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--textPrimary);
+}
+
+.texto {
+    font-size: 1.2rem;
+}
+
+.fonte {
+    font-size: 1rem;
+    color: var(--textPrimary);
+}
+
+img {
+    width: 20vw;
+    height: 20vh;
+}

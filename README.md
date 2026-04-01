@@ -1,19 +1,20 @@
 # Django Configuração de Projeto Padrão (Simples)
 
-Essa configuração simples de projeto django que utilizo para fazer testes e criar aplicações locais.
+Esse template é uma modificação deste template: [Link](https://github.com/opencodigos/DjangoProjetoConfiguracao)
 
-Espero que ajude !!!
+A criadora do arquivo original também fez um video explicando o template que criou (não inclui minhas modificações): Vídeo Tutorial [Link](https://www.youtube.com/watch?v=0y5YdiK7x0k)
 
-Esse é link do Vídeo Tutorial [Link](https://www.youtube.com/watch?v=0y5YdiK7x0k)
+Ajustei este template para atender minhas necessidades, pois eu preferia ter certas configurações que no template original são de outra forma.
+Dito isso, segue o tutorial do template que denomino de Patológico:
 
 **Configurações Iniciais**
 
 <details><summary><b>Ambiente Virtual Linux/Windows</b></summary>
 
-- **Ambiente Virtual Linux/Windows**
+- **Primeira Etapa, criar ambiente virtual**
     
-    
-    Lembrando… Precisa ter Python instalado no seu ambiente.
+    Lembrando… Precisa ter Python instalado na sua maquina
+    Site do python: [Link](https://www.python.org/).
     
     **Criar o ambiente virtual Linux/Windows**
     
