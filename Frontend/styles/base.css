@@ -51,11 +51,17 @@ ul {
 }
 
 li {
+    height: 100%;
+    width: 15vw;
+}
+
+a {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 15vw;
+    width: 100%;
+    text-decoration: none;
     font-family: var(--fontPrimary);
     color: var(--textPrimary);
     font-size: 1.2rem;
@@ -64,11 +70,25 @@ li {
     transition: color, background 0.3s ease;
 }
 
-li:hover {
+a:hover {
     background: var(--hover);
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.active {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--secondary);
+    margin: 60px 0;
+}
+
+footer {
+    width: 100%;
+    height: 8vh;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

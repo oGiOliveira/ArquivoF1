@@ -5,10 +5,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}{% endblock %}</title>
+	<title>Página de {% block title %}{% endblock %}</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="{% static 'base.css' %}"> <!--css base de todas as paginas-->
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
 	{% block cssPagina %}
 		<!--espaço para que na pagina que desejar possa colocar outros css que afetem apenas a pagina desejada-->
@@ -20,11 +21,12 @@
 		<nav>
 			<span class="Logo"><span class="vermelho">A</span>rquivo <span class="vermelho">F</span>1</span>
 			<ul>
-				<li><a href="{% url 'newsPage' %}">Notícias</a></li>
-				<li><a href="#">Resultados</a></li>
-				<li><a href="#">Pilotos</a></li>
-				<li><a href="#">Equipes</a></li>
-				<li><a href="#">Pistas</a></li>
+				<li class="{% if request.path == '/ArquivoF1' %}active{% endif %}"><a href="{% url 'mainPage' %}">Inicio</a></li>
+				<li class="{% if request.path == '/ArquivoF1/Noticias' %}active{% endif %}"><a href="{% url 'newsPage' %}">Notícias</a></li>
+				<li class="{% if request.path == '/ArquivoF1/Resultados' %}active{% endif %}"><a href="{% url 'resultsPage' %}">Resultados</a></li>
+				<li class="{% if request.path == '/ArquivoF1/Pilotos' %}active{% endif %}"><a href="{% url 'driversPage' %}">Pilotos</a></li>
+				<li class="{% if request.path == '/ArquivoF1/Equipes' %}active{% endif %}"><a href="{% url 'teamsPage' %}">Equipes</a></li>
+				<li class="{% if request.path == '/ArquivoF1/Pistas' %}active{% endif %}"><a href="{% url 'tracksPage' %}">Pistas</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -33,8 +35,10 @@
 	{% block content %}
 		<!--espaço para que na pagina desejada aja um local pro seu conteudo principal-->
 	{% endblock %} 
- 
-
+	
+	<footer>
+		<span class="Logo"><span class="vermelho">A</span>rquivo <span class="vermelho">F</span>1</span>
+	</footer>
 
 	<!-- JS-->
 	<!--boostrap-->
