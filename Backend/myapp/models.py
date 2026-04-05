@@ -1,5 +1,30 @@
 from django.db import models
 
+#Tabela de Pilotos:
+class Piloto(models.Model):
+    nome= models.CharField(max_length=100)
+    equipe= models.CharField(max_length=100)
+    bestT= models.IntegerField()
+    campeao= models.IntegerField()
+
+#Tabel de Equipes:
+class Equipe(models.Model):
+    nomeE= models.CharField(max_length=100)
+    paísE= models.CharField(max_length=100)
+    vitorias= models.IntegerField()
+    best_time= models.IntegerField()
+    bestP= models.CharField(max_length=100) #usar outra coisa no CharField
+
+#Tabela de Pistas:
+class Pista(models.Model):
+    nomeP= models.CharField(max_length=100)
+    paísP= models.CharField(max_length=100)
+    vencedores= models.CharField(max_length=100) #usar outra coisa no CharField
+
+#Tabela de Campeõs:
+class Campeoes(models.Model): #interligar com pistas e pilotos e equipes
+    nomes= models.CharField(max_length=100) #interligar com piloto.campeao
+
 #desenvolva seus modelos aqui. Tipo isso:
 '''
 class Formulario(models.Model):
