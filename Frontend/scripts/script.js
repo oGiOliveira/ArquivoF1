@@ -1,17 +1,40 @@
+/*botao dropdown*/
+function toggleDropdown(id) {
+    const box = document.getElementById("opcoes-" + id);
+    box.style.display = (box.style.display === "flex") ? "none" : "flex";
+}
+
+function selecionar(valor, id) {
+    //document.getElementById('pais, team').innerText = valor;
+    document.getElementById("opcoes-" + id).style.display = "none";
+}
+
+document.addEventListener("click", function(event) {
+    const dropdown = document.querySelectorAll(".dropdownOptions");
+    dropdown.forEach(menu => {
+        if (!menu.contains(event.target) && !event.target.closest(".dropdownInput")){
+            menu.style.display = "none";
+        }
+    });
+});
+/*fim botao dropdown*/
 
 //modais
     /*base modal*/
     const btnOpen = document.getElementById("btnOpenModal");
     const btnClose = document.getElementById("btnCloseModal");
-    const modals = document.querySelectorAll(".modal");
+
+    const modals = document.querySelectorAll(".modalType, .modalForm");
 
     /*abre modal*/
     document.querySelectorAll("[data-open-modal]").forEach(btn => {
         btn.addEventListener("click", () => {
         const modalId = btn.dataset.openModal;
         const modal = document.getElementById(modalId);
-
+            
         if (modal) {
+            //fecha modais abertos
+            modals.forEach(m => m.classList.remove("ativo"));
             //abre modal
             modal.classList.add("ativo");
         }
@@ -28,17 +51,17 @@
         /*botaoa X que fecha qualquer modal*/
         document.querySelectorAll(".btnCloseModal").forEach(btn => {
             btn.addEventListener("click", () => {
-                btn.closest(".modal").classList.remove("ativo");
+                btn.closest(".modalType, .modalForm").classList.remove("ativo");
             })
         })
         //botao de retornar para o modal anterior
         document.querySelectorAll(".btnReturnModal").forEach(btn => {
             btn.addEventListener("click", () => {
-                btn.closest(".modal").classList.remove("ativo");
+                btn.closest(".modalType, .modalForm").classList.remove("ativo");
             })
         })
         /*clicando fora fecha*/
-        document.querySelectorAll(".modal").forEach(modal => {
+        document.querySelectorAll(".modalType, .modalForm").forEach(modal => {
             modal.addEventListener("click", e => {
                 if (e.target === modal) {
                     modal.classList.remove("ativo");

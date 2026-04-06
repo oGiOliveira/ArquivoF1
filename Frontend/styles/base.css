@@ -1,5 +1,5 @@
 :root {
-    --background: #e4f1e6;
+    --background: #ffffff;
     --primary: #1e1c1c;
     --secondary: #1e2634;
     --hover: #a9b4cd69;
@@ -25,7 +25,7 @@ header {
 .Logo {
     font-family: var(--fontPrimary);
     color: var(--textPrimary);
-    font-size: 1.5rem;
+    font-size: 1.2vw;
     font-weight: bold;
     font-style: italic;
 }
@@ -33,7 +33,7 @@ header {
     color: var(--textRed);
 }
 
-nav {
+header nav {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -41,7 +41,7 @@ nav {
     justify-content: space-evenly;
 }
 
-ul {
+header ul {
     display: flex;
     height: 100%;
     width: 50vw;
@@ -50,12 +50,12 @@ ul {
     padding: 0;
 }
 
-li {
+header li {
     height: 100%;
     width: 15vw;
 }
 
-a {
+header a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,31 +64,34 @@ a {
     text-decoration: none;
     font-family: var(--fontPrimary);
     color: var(--textPrimary);
-    font-size: 1.2rem;
+    font-size: 1vw;
     font-weight: bold;
     cursor: pointer;
     transition: color, background 0.3s ease;
 }
 
-a:hover {
+header a:hover {
     background: var(--hover);
 }
 
-.active {
+header .active {
     color: var(--textPrimary);
     text-decoration: underline;
 }
 
-button {
-    padding: 0.5rem 1rem;
+header button {
+    padding: 0.5vh 1vw;
     background: var(--primary);
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
-button:hover {
+header img {
+    height: 2vh;
+}
+
+header button:hover {
     background: var(--hover);
 }
 
@@ -110,25 +113,7 @@ footer {
 
 
 
-
-/*modal deletar transferencia*/
-.modal {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    padding-top: 8vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-}
-
+/*base modal*/
 .btnCloseModal {
     position: absolute;
     top: 1rem;
@@ -148,7 +133,27 @@ footer {
     color: var(--active);
 }
 
-.modal.ativo {
+
+
+/*modal tipo de envio*/
+.modalType {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    padding-top: 8vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.modalType.ativo {
     opacity: 1;
     pointer-events: all;
 }
@@ -156,7 +161,7 @@ footer {
 .modalContentTypePublish {
     background: var(--primary);
     width: 20vw;
-    height: 44vh;
+    height: 40vh;
     position: relative;
 }
 
@@ -164,15 +169,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    align-items: center;
-    font-size: 1rem;
+    font-size: 1.4vh;
     color: var(--textPrimary);
 }
 
 .modalTypePublishBox {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 100%;
     height: 40vh;
     color: var(--hover);
@@ -181,56 +184,9 @@ footer {
     font-style: italic;
 }
 
-.modalDeleteBox span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.modalType span {
+    font-size: 1.8vh;
 }
-
-.formularioGrid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--hover);
-    font-size: 1.1rem;
-    font-weight: bold;
-    font-style: italic;
-    padding: 1rem;
-    gap: 1rem;
-}
-
-.modalDeleteBox span {
-    margin-top: 1rem;
-}
-
-.modal span {
-    font-size: 1rem;
-}
-
-.btnConfirmarGridDelete {
-    display: flex;
-    flex-direction: row-reverse;
-    align-content: flex-end;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.btnConfirmModal {
-    background: var(--textRed);
-    color: var(--textPrimary);
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btnConfirmModal:hover {
-    background: var(--hover);
-}
-
 
 .boxOptions {
     display: flex;
@@ -241,14 +197,19 @@ footer {
 }
 
 .boxOptions button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     height: 6vh;
     width: 100%;
+    padding: 0.5rem 1rem;
     color: var(--hover);
     font-size: 2rem;
     font-weight: bold;
     background: none;
     border: solid 1px var(--secondary);
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .boxOptions button:hover{
@@ -258,20 +219,142 @@ footer {
 
 
 
-/*botoes base modais*/
-    .btnNextModal, .btn2NextModal {
-        color: var(--textPrimary);
-        background: var(--primary);
-        width: 6vw;
-        height: 3vw;
-        margin: 1rem;
-        font-size: 1rem;
-        padding: 1rem;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
-    .btnNextModal:hover, .btn2NextModal:hover {
-        background: var(--hover);
-    }
+/*modal de formulario config*/
+
+.modalForm {
+    display: flex;
+    justify-content: center;
+    padding-top: 8vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.modalForm.ativo {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modalFormContent {
+    background: var(--primary);
+    width: 90vw;
+    height: 80vh;
+    position: relative;
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4vh;
+    color: var(--textPrimary);
+}
+
+.modalDriverBox {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+    width: 100%;
+}
+
+.formularioGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: var(--hover);
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 100%;
+    gap: 1rem;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.left input, .right input {
+    width: 20vw;
+    padding: 0.8vw;
+    border: none;
+    border-radius: 4px;
+    background: var(--background);
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+/*dropdown*/
+.dropdown {
+    width: 8vw;
+    position: relative;
+}
+
+.dropdown label {
+    margin: 0px;
+}
+
+.dropdownInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--primary);
+    font-style: italic;
+    background: var(--background);
+}
+
+.dropdownOptions {
+    display: none;
+    flex-direction: column;
+    background: var(--background);
+    border-radius: 8px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: absolute;
+    width: 15vw;
+    z-index: 10;
+}
+
+#arrow {
+    font-size: 1rem;
+}
+
+.option {
+    color: var(--primary);
+    background: var(--background);
+    padding: 0.8rem;
+    border: 1px solid var(--primary);
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.option:hover {
+    background: var(--secondary);
+    color: var(--textPrimary);
+}
+/*fim dropdown*/

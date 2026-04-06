@@ -51,9 +51,10 @@
 		<span class="Logo"><span class="vermelho">A</span>rquivo <span class="vermelho">F</span>1</span>
 	</footer>
 
+	<!--modais-->
 	
     <!--modal - type publish-->
-    <div id="modalTypePublish" class="modal">
+    <div id="modalTypePublish" class="modalType">
         <div class="modalContentTypePublish">
             <div class="modalHeader">
                 <h2>Tipo de Envio</h2>
@@ -61,11 +62,64 @@
             <div class="modalTypePublishBox">
                 <!--conteudo-->
                 <div class="boxOptions">
-                    <button class="typeNews" data-type="Noticia"><span>Notícia</span></button>
-                    <button class="typeResults" data-type="Resultado"><span>Resultado</span></button>
-					<button class="typeDrivers" data-type="Piloto"><span>Piloto</span></button>
-					<button class="typeTeams" data-type="Equipe"><span>Equipe</span></button>
-					<button class="typeTracks" data-type="Pista"><span>Pista</span></button>
+                    <button class="typeNews" data-type="Noticia" ><span>Notícia</span></button>
+                    <button class="typeResults" data-type="Resultado"><span>Cadastro de Resultado</span></button>
+					<button data-open-modal="modalDriver" class="typeDrivers" data-type="Piloto"><span>Cadastro de Piloto</span></button>
+					<button class="typeTeams" data-type="Equipe"><span>Cadastro de Equipe</span></button>
+					<button class="typeTracks" data-type="Pista"><span>Cadastro de Pista</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!--modal - driver-->
+    <div id="modalDriver" class="modalForm">
+        <div class="modalFormContent">
+            <div class="modalHeader">
+                <h2>Cadastro de Piloto</h2>
+            </div>
+            <div class="modalDriverBox">
+                <!--conteudo-->
+                <div class="formularioGrid">
+                   {% csrf_token %}
+                    <div class="infoBox">
+                        <div class="left">
+							<span>Nome do Piloto</span>
+							<input type="text" class="nameDriverInput" name="nameDriver" required>
+							<div class="dropdown">
+								<div class="team">
+									<span>Equipe</span>
+									<div class="dropdownInput" onclick="toggleDropdown('a')">
+										<span id="team">-</span>
+										<span id="arrow">v</span>
+									</div>
+									<div class="dropdownOptions" id="opcoes-a">
+										<div class="option" onclick="selecionar('Redbull', 'a')">Redbull</div>
+										<div class="option" onclick="selecionar('Mercedes', 'a')">Mercedes</div>
+									</div>
+								</div>
+							</div>
+							<span>Data de Nascimento (opicional)</span>
+							<input type="date" class="dateDriverInput" name="dateDriver">
+						</div>
+						<div class="right">
+							<div class="dropdown">
+								<div class="country">
+									<span>País</span>
+									<div class="dropdownInput" onclick="toggleDropdown('b')">
+										<span id="pais">-</span>
+										<span id="arrow">v</span>
+									</div>
+									<div class="dropdownOptions" id="opcoes-b">
+										<div class="option" onclick="selecionar('Brasil', 'b')">Brasil</div>
+										<div class="option" onclick="selecionar('Franca', 'b')">França</div>
+									</div>
+								</div>
+							</div>
+							<span>Foto do Piloto (desejável)</span>
+							<input type="file" class="dateTransferInput" name="imageDriver" accept="image/*">
+						</div>
+                    </div>
                 </div>
             </div>
         </div>
