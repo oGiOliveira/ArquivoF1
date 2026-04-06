@@ -21,9 +21,9 @@ from django.conf.urls.static import static
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('ArquivoF1', include('myapp.urls')), # url do app
-    path('', lambda request: redirect('mainPage')), #redireciona para  a pagina principal
+    path('ArquivoF1/admin', admin.site.urls),
+    path('ArquivoF1/', include('myapp.urls')), # url do app
+    path('', lambda request: redirect('ArquivoF1/')), #redireciona para  a pagina principal
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Adicionar Isto
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Adicionar Isto
