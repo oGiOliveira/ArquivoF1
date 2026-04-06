@@ -5,7 +5,12 @@ function toggleDropdown(id) {
 }
 
 function selecionar(valor, id) {
-    //document.getElementById('pais, team').innerText = valor;
+    if (id === 'a') {
+        document.getElementById("team").innerText = valor;
+    }
+    else if (id === 'b') {
+        document.getElementById("country").innerText = valor;
+    }
     document.getElementById("opcoes-" + id).style.display = "none";
 }
 
