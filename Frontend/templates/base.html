@@ -31,7 +31,7 @@
 
 			{% if user.is_authenticated and user.is_staff %}
 				<div class="admin">
-					<button data-open-modal="modalTypePublish">
+					<button class="modalTipo" data-open-modal="modalTypePublish">
 						<img src="{% static 'publish.png' %}">
 					</button>
 					<button>
@@ -56,10 +56,8 @@
     <div id="modalTypePublish" class="modal">
         <div class="modalContentTypePublish">
             <div class="modalHeader">
-                <button class="btnCloseModal">x</button>
                 <h2>Tipo de Envio</h2>
             </div>
-
             <div class="modalTypePublishBox">
                 <!--conteudo-->
                 <div class="boxOptions">
@@ -69,10 +67,6 @@
 					<button class="typeTeams" data-type="Equipe"><span>Equipe</span></button>
 					<button class="typeTracks" data-type="Pista"><span>Pista</span></button>
                 </div>
-            </div>
-
-            <div class="btnConfirmarGrid">
-                <button class="btnNextModal" data-open-modal="modalTransferInfo1" disabled>Prosseguir</button>
             </div>
         </div>
     </div>
