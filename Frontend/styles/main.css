@@ -1,17 +1,3 @@
-:root {
-    --background: #e4f1e6;
-    --primary: #1e1c1c;
-    --secondary: #1e2634;
-    --hover: #a9b4cd69;
-    --textPrimary: #f2ecec;
-    --textSecondary: #070707;
-    --textGreen: #00bf63;
-    --textRed: #ef4136;
-    --colorButton: #2d8bbab6;
-
-    --fontPrimary: 'Roboto', sans-serif;
-}
-
 h1 {
     font-family: var(--fontPrimary);
     color: var(--textSecondary);
