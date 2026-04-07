@@ -75,17 +75,29 @@
 	<!--modal - driver-->
     <div id="modalDriver" class="modalForm">
         <div class="modalFormContent">
-            <div class="modalHeader">
-                <h2>Cadastro de Piloto</h2>
+			<!--STEP2-->
+            <div class="modalHeaderForm">
+                <h2>Formulário de Envio</h2>
+				<span>Cadastro de Piloto</span>
             </div>
-            <div class="modalDriverBox">
+			<div class="abas">
+				<nav>
+					<ul>
+						<li><button class="tab active" data-setp="0">Informações</button></li>
+						<li><button class="tab" data-setp="1">Preview</button></li>
+					</ul>
+				</nav>
+			</div>
+            <div class="modalDriverWizard step active">
                 <!--conteudo-->
                 <div class="formularioGrid">
                    {% csrf_token %}
                     <div class="infoBox">
                         <div class="left">
-							<span>Nome do Piloto</span>
-							<input type="text" class="nameDriverInput" name="nameDriver" required>
+							<div class="formInput">
+								<span>Nome do Piloto</span>
+								<input type="text" class="nameDriverInput" name="nameDriver" required>
+							</div>
 							<div class="dropdown">
 								<div class="team">
 									<span>Equipe</span>
@@ -99,8 +111,10 @@
 									</div>
 								</div>
 							</div>
-							<span>Data de Nascimento (opicional)</span>
-							<input type="date" class="dateDriverInput" name="dateDriver">
+							<div class="formInput">
+								<span>Data de Nascimento (opicional)</span>
+								<input type="date" class="dateDriverInput" name="dateDriver">
+							</div>
 						</div>
 						<div class="right">
 							<div class="dropdown">
@@ -116,12 +130,28 @@
 									</div>
 								</div>
 							</div>
-							<span>Foto do Piloto (desejável)</span>
-							<input type="file" class="dateTransferInput" name="imageDriver" accept="image/*">
+							<div class="formInput">
+								<span>Foto do Piloto (desejável)</span>
+								<input type="file" class="dateTransferInput" name="imageDriver" accept="image/*">
+							</div>
 						</div>
                     </div>
                 </div>
+				<div class="btnContainer">
+					<button class="nextBtn">Próximo</button>
+				</div>
             </div>
+
+			<!--STEP3-->
+			<div class="modalDriverWizard step">
+				<div class="modalHeader">
+                	<h2>Preview do Cadastro</h2>
+            	</div>
+
+				<div class="btnContainer">
+					<button class="confirmBtn" type="submit">Confirmar</button>
+				</div>
+			</div>
         </div>
     </div>
 

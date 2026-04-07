@@ -74,3 +74,43 @@ document.addEventListener("click", function(event) {
             });
         });
     //fim da funcionalidades de fechar os modais
+
+//funcionalidade de menu wizard (passar pro proximo menu)
+const steps = document.querySelectorAll(".step");
+const tabs = document.querySelectorAll(".tab");
+let currentStep = 0;
+
+function showStep(index) {
+    steps.forEach((step, i) => {
+        step.classList.remove("active");
+        if (i === index) {
+            step.classList.add("active");
+        }
+    });
+    tabs.forEach((tabs, i) => {
+        tabs.classList.remove("active");
+        if (i === index) {
+            tabs.classList.add("active");
+        }
+    });
+
+    currentStep = index;
+}
+
+//clique para mudar de aba
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        const stepIndex = parseInt(tab.dataset.setp);
+        showStep(stepIndex);
+    });
+})
+
+//botao de prosseguir
+document.querySelectorAll(".nextBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    });
+});
