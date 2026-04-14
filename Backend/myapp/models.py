@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum 
 
 #Tabela de Pilotos:
 class Piloto(models.Model):
@@ -16,6 +17,7 @@ class Piloto(models.Model):
         verbose_name = 'Piloto'
         verbose_name_plural = 'Pilotos'
         ordering = ['id']
+
 '''
 #Tabel de Equipes:
 class Equipe(models.Model):
@@ -29,11 +31,17 @@ class Equipe(models.Model):
 class Pista(models.Model):
     nomeP= models.CharField(max_length=100)
     paísP= models.CharField(max_length=100)
-    vencedores= models.CharField(max_length=100) #usar outra coisa no CharField
+    vencedores= models.CharField(max_length=100)
 
 #Tabela de Campeõs:
-class Campeoes(models.Model): #interligar com pistas e pilotos e equipes
-    nomes= models.CharField(max_length=100) #interligar com piloto.campeao
+class Campeoes(models.Model):
+    nome = models.CharField(max_length=100)
+    pais = models.CharField(max_length=100)
+    vitorias = models.IntegerField(default=0)
+    menor_tempo = models.DecimalField(max_digits=6, decimal_places=3)
+    
+    def __str__(self):
+        return self.nome
 
 #desenvolva seus modelos aqui. Tipo isso:
 
