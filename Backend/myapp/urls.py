@@ -10,4 +10,6 @@ urlpatterns = [
     path('pilotos', views.drivers, name='driversPage'),
     path('equipes', views.teams, name='teamsPage'),
     path('pistas', views.tracks, name='tracksPage'),
+
+    path('salvarPiloto', views.saveDriver, name='saveDriver'),
 ]

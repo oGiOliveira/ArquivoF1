@@ -4,13 +4,23 @@ from django.db import models
 class Piloto(models.Model):
     nome= models.CharField(max_length=100)
     equipe= models.CharField(max_length=100)
-    bestT= models.IntegerField()
-    campeao= models.IntegerField()
+    dataNasc= models.DateField()
+    numeracao= models.IntegerField()
+    pais= models.CharField(max_length=100)
+    foto= models.ImageField(upload_to='systemDrivers')
 
+    def __str__(self):
+        return '|Piloto: ' + self.nome + ' |Equipe: ' + self.equipe + ' |Numeração: ' + str(self.numeracao)
+
+    class Meta:
+        verbose_name = 'Piloto'
+        verbose_name_plural = 'Pilotos'
+        ordering = ['id']
+'''
 #Tabel de Equipes:
 class Equipe(models.Model):
     nomeE= models.CharField(max_length=100)
-    paísE= models.CharField(max_length=100)
+    paisE= models.CharField(max_length=100)
     vitorias= models.IntegerField()
     best_time= models.IntegerField()
     bestP= models.CharField(max_length=100) #usar outra coisa no CharField
@@ -26,7 +36,13 @@ class Campeoes(models.Model): #interligar com pistas e pilotos e equipes
     nomes= models.CharField(max_length=100) #interligar com piloto.campeao
 
 #desenvolva seus modelos aqui. Tipo isso:
-'''
+
+
+
+
+
+######################################
+
 class Formulario(models.Model):
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='transfers')
     tipoForm = models.CharField(max_length=20, default='despesa')

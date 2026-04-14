@@ -2,7 +2,7 @@ h1 {
     font-family: var(--fontPrimary);
     color: var(--textSecondary);
     font-size: 2vw;
-    font-weight: bold;
+    font-weight: normal;
     margin: 20px 0;
 }
 
