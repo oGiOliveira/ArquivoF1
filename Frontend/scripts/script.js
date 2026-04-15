@@ -76,12 +76,9 @@ document.addEventListener("click", function(event) {
     //fim da funcionalidades de fechar os modais
 
 //funcionalidade de menu wizard (passar pro proximo menu)
-document.querySelectorAll(".modalForm").forEach(modal => {
-    const wizard = modal.querySelector('.wizard');
-    if (!wizard) return;
 
-    const steps = wizard.querySelectorAll(".step");
-    const tabs = wizard.querySelectorAll(".tab");
+    const steps = document.querySelectorAll(".step");
+    const tabs = document.querySelectorAll(".tab");
     let currentStep = 0;
 
     function showStep(index) {
@@ -110,7 +107,7 @@ document.querySelectorAll(".modalForm").forEach(modal => {
     })
 
     //botao de prosseguir
-    wizard.querySelectorAll(".nextBtn").forEach(btn => {
+    document.querySelectorAll(".nextBtn").forEach(btn => {
         btn.addEventListener("click", () => {
             if (currentStep < steps.length - 1) {
                 currentStep++;
@@ -118,4 +115,3 @@ document.querySelectorAll(".modalForm").forEach(modal => {
             }
         });
     });
-});

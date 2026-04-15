@@ -54,7 +54,7 @@ class Campeoes(models.Model):
     nome = models.CharField(max_length=100)
     pais = models.CharField(max_length=100)
     vitorias = models.IntegerField(default=0)
-    menor_tempo = models.DecimalField(max_digits=6, decimal_places=3)
+    menor_tempo = models.DecimalField(max_digits=5, decimal_places=3)
     
     def __str__(self):
         return self.nome
