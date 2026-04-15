@@ -291,7 +291,7 @@ footer {
 
 
 /*menu wizard*/
-.modalDriverWizard {
+.modalDriverWizard, .modalTeamWizard {
     display: flex;
     flex-direction: column;
     height: 90%;
@@ -346,7 +346,7 @@ footer {
 
 .infoBox {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     height: 40vh;
     width: 100%;
     margin-top: 10vh;
@@ -367,7 +367,7 @@ footer {
     gap: 0.5rem;
 }
 
-.formInput input[type="text"], .formInput input[type="date"] {
+.formInput input[type="text"], .formInput input[type="date"], .formInput input[type="number"], .formInput textarea {
     width: 30vw;
     padding: 0.8vw;
     border: none;
