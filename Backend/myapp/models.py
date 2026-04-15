@@ -1,6 +1,20 @@
 from django.db import models
 from django.db.models import Sum 
 
+#tabela de noticias:
+class Noticia(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Notícia'
+        verbose_name_plural = 'Notícias'
+        ordering = ['-created_at']
+
 #tabela de pilotos:
 class Piloto(models.Model):
     pilotoNome = models.CharField(max_length=100)

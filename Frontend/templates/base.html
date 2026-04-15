@@ -91,13 +91,15 @@
             <div class="modalDriverWizard step active">
                 <!--conteudo-->
                 <div class="formularioGrid">
-                   {% csrf_token %}
-                    <div class="infoBox">
-                        <div class="formInput">
-							<input type="text" class="titleNewsInput" name="titleNews" placeholder="Título da Notícia" required>
-							<textarea class="contentNewsInput" name="contentNews" placeholder="Corpo da Notícia" required></textarea>
+					<form method="POST" enctype="multipart/form-data" action="#">
+                   		{% csrf_token %}
+						<div class="infoBox">
+							<div class="formInput">
+								<input type="text" class="titleNewsInput" name="titleNews" placeholder="Título da Notícia" required>
+								<textarea class="contentNewsInput" name="contentNews" placeholder="Corpo da Notícia" required></textarea>
+							</div>
 						</div>
-                    </div>
+					</form>
                 </div>
 				<div class="btnContainer">
 					<button class="confirmBtn" type="submit">Confirmar</button>
@@ -274,7 +276,7 @@
                     </div>
                 </div>
 				<div class="btnContainer">
-					<button class="nextBtn">Próximo</button>
+					<button class="confirmBtn" type="submit">Confirmar</button>
 				</div>
             </div>
 

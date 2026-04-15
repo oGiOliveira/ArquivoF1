@@ -11,5 +11,6 @@ urlpatterns = [
     path('equipes', views.teams, name='teamsPage'),
     path('pistas', views.tracks, name='tracksPage'),
 
+    path('salvarNoticia', views.saveNews, name='saveNews'),
     path('salvarPiloto', views.saveDriver, name='saveDriver'),
 ]

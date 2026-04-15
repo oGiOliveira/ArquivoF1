@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .models import Piloto
+from .models import Piloto, Noticia
 
 #crie suas views aqui
 def main(request):
@@ -23,6 +23,16 @@ def teams(request):
 def tracks(request):
     return render(request, 'tracks.html')
 
+
+@login_required
+def saveNews(request):
+    if request.method == 'POST':
+        title = request.POST.get('titleNews')
+        content = request.POST.get('contentNews')
+        print(title)
+        
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)
 
 @login_required
 def saveDriver(request):
