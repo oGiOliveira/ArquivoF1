@@ -14,7 +14,8 @@ def results(request):
     return render(request, 'results.html')
 
 def drivers(request):
-    return render(request, 'drivers.html')
+    pilotos = Piloto.objects.all()
+    return render(request, 'drivers.html', {'pilotos': pilotos})
 
 def teams(request):
     return render(request, 'teams.html')
@@ -26,25 +27,25 @@ def tracks(request):
 @login_required
 def saveDriver(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
-        equipe = request.POST.get('equipe')
-        dataNasc = request.POST.get('dataNasc')
-        numeracao = request.POST.get('numeracao')
-        pais = request.POST.get('pais')
-        foto = request.FILES.get('foto')
+        nome = request.POST.get('nameDriver')
+        equipe = request.POST.get('team')
+        dataNasc = request.POST.get('dateDriver')
+        numeracao = request.POST.get('numberDriver')
+        pais = request.POST.get('country')
+        foto = request.FILES.get('imageDriver')
         print(nome, equipe, dataNasc, numeracao, pais, foto)
 
         try:
             piloto = Piloto.objects.create(
-                nome=nome,
-                equipe=equipe,
-                dataNasc=dataNasc,
-                numeracao=numeracao,
-                pais=pais,
-                foto=foto
+                pilotoNome=nome,
+                pilotoEquipe=equipe,
+                pilotoDataNasc=dataNasc,
+                pilotoNumeracao=numeracao,
+                pilotoPais=pais,
+                pilotoFoto=foto
             )
             print('Piloto criado com sucesso: ', piloto)
-            return JsonResponse({'success': True, 'id': transfer.id})
+            return JsonResponse({'success': True, 'id': piloto.id})
         except Exception as e:
             return JsonResponse({'sucess': False, 'error':str(e)}, status=400)
     return JsonResponse({'success': False, 'error': str(e)}, status=400)

@@ -10,5 +10,21 @@
 {% block content %}
 	<h1>Pilotos</h1>
 	<!--conteudo-->
-	
+	<div class="layoutDrivers">
+		<!--lista-->
+		<div class="gridDrivers">
+			<!--pilotos-->
+			{% for p in pilotos %}
+				<div class="cardDriver">
+					<div class="items">
+						<!--itens-->
+						<p>{{ p.pilotoNome }}</p>
+						<p>{{ p.pilotoEquipe }}</p>
+						<p>{{ p.pilotoNumeracao }}</p>
+						<p>{{ p.pilotoPais }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}

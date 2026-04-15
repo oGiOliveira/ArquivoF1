@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
 
                 const data = await response.json();
-                const nome = formData.get("nameDriver");
-                const equipe = formData.get("team");
-                const dataNasc = formData.get("dateDriver");
-                const number = formData.get("numberDriver");
-                const country = formData.get("country");
-                const image = formData.get("imageDriver");
+                const pilotoNome = formData.get("nameDriver");
+                const pilotoEquipe = formData.get("team");
+                const pilotoDataNasc = formData.get("dateDriver");
+                const pilotoNumeracao = formData.get("numberDriver");
+                const pilotoPais = formData.get("country");
+                const pilotoFoto = formData.get("imageDriver");
 
-                criarBoxTransferencia(nome, equipe, dataNasc, number, country, image, data.id);
+                criarBoxTransferencia(pilotoNome, pilotoEquipe, pilotoDataNasc, pilotoNumeracao, pilotoPais, pilotoFoto, data.id);
                 showPopup('Cadastro de piloto registrado com sucesso!');
                 form.reset();
 

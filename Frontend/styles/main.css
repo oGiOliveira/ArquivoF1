@@ -1,11 +1,3 @@
-h1 {
-    font-family: var(--fontPrimary);
-    color: var(--textSecondary);
-    font-size: 2vw;
-    font-weight: normal;
-    margin: 20px 0;
-}
-
 .news {
     display: flex;
     align-items: center;

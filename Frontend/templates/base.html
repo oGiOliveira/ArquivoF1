@@ -84,7 +84,7 @@
 				<nav>
 					<ul>
 						<li><button class="tab active" data-setp="0">Corpo da Notícia</button></li>
-						<li><button class="tab" data-setp="1">Imagens</button></li>
+						<!-- <li><button class="tab" data-setp="1">Imagens</button></li> -->
 					</ul>
 				</nav>
 			</div>
@@ -100,11 +100,11 @@
                     </div>
                 </div>
 				<div class="btnContainer">
-					<button class="nextBtn">Próximo</button>
+					<button class="confirmBtn" type="submit">Confirmar</button>
 				</div>
             </div>
 
-			<!--STEP3-->
+			<!--STEP3--> --- sem uso no momento ---
 			<div class="modalDriverWizard step">
 				<div class="modalHeader">
                 	<h2>Preview do Cadastro</h2>
@@ -129,69 +129,95 @@
 				<nav>
 					<ul>
 						<li><button class="tab active" data-setp="0">Informações</button></li>
-						<li><button class="tab" data-setp="1">Preview</button></li>
+						<!-- <li><button class="tab" data-setp="1">Preview</button></li> -->
 					</ul>
 				</nav>
 			</div>
             <div class="modalDriverWizard step active">
                 <!--conteudo-->
                 <div class="formularioGrid">
-                   {% csrf_token %}
-                    <div class="infoBox">
-                        <div class="left">
-							<div class="formInput">
-								<span>Nome do Piloto</span>
-								<input type="text" class="nameDriverInput" name="nameDriver" required>
-							</div>
-							<div class="dropdown">
-								<div class="teamBox">
-									<span>Equipe</span>
-									<div class="dropdownInput" onclick="toggleDropdown('a')">
-										<span id="team">-</span>
-										<span class="arrow">v</span>
-									</div>
-									<div class="dropdownOptions" id="opcoes-a">
-										<div class="option" onclick="selecionar('Redbull', 'a')">Redbull</div>
-										<div class="option" onclick="selecionar('Mercedes', 'a')">Mercedes</div>
+					<form method="POST" enctype="multipart/form-data" action="{% url 'saveDriver' %}">
+						{% csrf_token %}
+						<div class="infoBox">
+							<div class="left">
+								<div class="formInput">
+									<span>Nome do Piloto</span>
+									<input type="text" class="nameDriverInput" name="nameDriver" required>
+								</div>
+								<div class="dropdown">
+									<div class="teamBox">
+										<span>Equipe</span>
+										<div class="dropdownInput" onclick="toggleDropdown('a')">
+											<span id="team">-</span>
+											<span class="arrow">v</span>
+										</div>
+										<div class="dropdownOptions" id="opcoes-a">
+											<div class="option" onclick="selecionar('Aston Martin', 'a')">Aston Martin</div>
+											<div class="option" onclick="selecionar('Alpine', 'a')">Alpine</div>
+											<div class="option" onclick="selecionar('Audi', 'a')">Audi</div>
+											<div class="option" onclick="selecionar('Mercedes', 'a')">Cadillac</div>
+											<div class="option" onclick="selecionar('Ferrari', 'a')">Ferrari</div>
+											<div class="option" onclick="selecionar('Haas F1 Team', 'a')">Haas F1 Team</div>
+											<div class="option" onclick="selecionar('Mercedes', 'a')">Mercedes</div>
+											<div class="option" onclick="selecionar('McLaren', 'a')">McLaren</div>
+											<div class="option" onclick="selecionar('Racing Bulls', 'a')">Racing Bulls</div>
+											<div class="option" onclick="selecionar('Red Bull Racing', 'a')">Red Bull Racing</div>
+											<div class="option" onclick="selecionar('Williams', 'a')">Williams</div>
+										</div>
+										<input type="hidden" name="team" id="teamInput" required>
 									</div>
 								</div>
-							</div>
-							<div class="formInput">
-								<span>Data de Nascimento (opicional)</span>
-								<input type="date" class="dateDriverInput" name="dateDriver">
-							</div>
-						</div>
-						<div class="right">
-							<div class="formInput">
-								<span>Numeração</span>
-								<input type="number" class="numberDriverInput" name="numberDriver" required>
-							</div>
-							<div class="dropdown">
-								<div class="country">
-									<span>País</span>
-									<div class="dropdownInput" onclick="toggleDropdown('b')">
-										<span id="country">-</span>
-										<span class="arrow">v</span>
-									</div>
-									<div class="dropdownOptions" id="opcoes-b">
-										<div class="option" onclick="selecionar('Brasil', 'b')">Brasil</div>
-										<div class="option" onclick="selecionar('França', 'b')">França</div>
-									</div>
+								<div class="formInput">
+									<span>Data de Nascimento (opicional)</span>
+									<input type="date" class="dateDriverInput" name="dateDriver">
 								</div>
 							</div>
-							<div class="formInput">
-								<span>Foto do Piloto (desejável)</span>
-								<input type="file" class="dateTransferInput" name="imageDriver" accept="image/*">
+							<div class="right">
+								<div class="formInput">
+									<span>Numeração</span>
+									<input type="number" class="numberDriverInput" name="numberDriver" required>
+								</div>
+								<div class="dropdown">
+									<div class="country">
+										<span>País</span>
+										<div class="dropdownInput" onclick="toggleDropdown('b')">
+											<span id="country">-</span>
+											<span class="arrow">v</span>
+										</div>
+										<div class="dropdownOptions" id="opcoes-b">
+											<div class="option" onclick="selecionar('Argentina', 'b')">Argentina</div>
+											<div class="option" onclick="selecionar('Alemanhã', 'b')">Alemanhã</div>
+											<div class="option" onclick="selecionar('Austrália', 'b')">Austrália</div>
+											<div class="option" onclick="selecionar('Brasil', 'b')">Brasil</div>
+											<div class="option" onclick="selecionar('Canada', 'b')">Canada</div>
+											<div class="option" onclick="selecionar('Espanha', 'b')">Espanha</div>
+											<div class="option" onclick="selecionar('Finlândia', 'b')">Finlândia</div>
+											<div class="option" onclick="selecionar('França', 'b')">França</div>
+											<div class="option" onclick="selecionar('Itália', 'b')">Itália</div>
+											<div class="option" onclick="selecionar('México', 'b')">México</div>
+											<div class="option" onclick="selecionar('Mônaco', 'b')">Mônaco</div>
+											<div class="option" onclick="selecionar('Nova Zelândia', 'b')">Nova Zelândia</div>
+											<div class="option" onclick="selecionar('Paises Baixos', 'b')">Paises Baixos</div>
+											<div class="option" onclick="selecionar('Reino Unido', 'b')">Reino Unido</div>
+											<div class="option" onclick="selecionar('Tailândia', 'b')">Tailândia</div>
+										</div>
+										<input type="hidden" name="country" id="countryInput" required>
+									</div>
+								</div>
+								<div class="formInput">
+									<span>Foto do Piloto (desejável)</span>
+									<input type="file" class="dateTransferInput" name="imageDriver" accept="image/*">
+								</div>
 							</div>
 						</div>
-                    </div>
-                </div>
-				<div class="btnContainer">
-					<button class="nextBtn">Próximo</button>
+						<div class="btnContainer">
+							<button class="confirmBtn" type="submit">Confirmar</button>
+						</div>
+					</form>
 				</div>
             </div>
 
-			<!--STEP3-->
+			<!--STEP3--> --- sem uso no momento ---
 			<div class="modalDriverWizard step">
 				<div class="modalHeader">
                 	<h2>Preview do Cadastro</h2>
@@ -216,7 +242,7 @@
 				<nav>
 					<ul>
 						<li><button class="tab active" data-setp="0">Informações</button></li>
-						<li><button class="tab" data-setp="1">Preview</button></li>
+						<!-- <li><button class="tab" data-setp="1">Preview</button></li> -->
 					</ul>
 				</nav>
 			</div>
@@ -252,7 +278,7 @@
 				</div>
             </div>
 
-			<!--STEP3-->
+			<!--STEP3--> --- sem uso no momento ---
 			<div class="modalDriverWizard step">
 				<div class="modalHeader">
                 	<h2>Preview do Cadastro</h2>

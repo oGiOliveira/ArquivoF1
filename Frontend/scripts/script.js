@@ -7,9 +7,11 @@ function toggleDropdown(id) {
 function selecionar(valor, id) {
     if (id === 'a') {
         document.getElementById("team").innerText = valor;
+        document.getElementById("teamInput").value = valor; //atualiza o valor do input oculto
     }
     else if (id === 'b') {
         document.getElementById("country").innerText = valor;
+        document.getElementById("countryInput").value = valor; //atualiza o valor do input oculto
     }
     document.getElementById("opcoes-" + id).style.display = "none";
 }
@@ -75,7 +77,7 @@ document.addEventListener("click", function(event) {
         });
     //fim da funcionalidades de fechar os modais
 
-//funcionalidade de menu wizard (passar pro proximo menu)
+//funcionalidade de menu wizard (passar pro proximo menu)(sem uso no momento)
 
     const steps = document.querySelectorAll(".step");
     const tabs = document.querySelectorAll(".tab");
@@ -99,12 +101,14 @@ document.addEventListener("click", function(event) {
     }
 
     //clique para mudar de aba
+    /*
     tabs.forEach(tab => {
         tab.addEventListener("click", () => {
             const stepIndex = parseInt(tab.dataset.setp);
             showStep(stepIndex);
         });
     })
+    */
 
     //botao de prosseguir
     document.querySelectorAll(".nextBtn").forEach(btn => {

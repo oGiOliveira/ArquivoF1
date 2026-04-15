@@ -1,0 +1,40 @@
+.layoutDrivers {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    padding: 1vw;
+}
+
+.gridDrivers {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr); /*repete 3x por linha*/
+    gap: 16px;
+    width: 100%;
+    height: 100vh;
+    padding: 1vw;
+    background-color: #f0f0f0;
+}
+
+.cardDriver {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 26vw;
+    height: 46vh;
+    padding: 12px;
+    font-size: 2vh;
+    background-color: #fff;
+    border-radius: 4px;
+    gap: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.items {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}

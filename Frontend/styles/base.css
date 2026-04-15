@@ -24,6 +24,14 @@ header {
     background: linear-gradient(90deg, rgba(239, 65, 54, 1) 0%,  rgb(22, 21, 21) 20%);
 }
 
+h1 {
+    font-family: var(--fontPrimary);
+    color: var(--textSecondary);
+    font-size: 2vw;
+    font-weight: normal;
+    margin: 20px 0;
+}
+
 .Logo {
     font-family: var(--fontPrimary);
     color: var(--textPrimary);
@@ -402,11 +410,13 @@ footer {
 .dropdownOptions {
     display: none;
     flex-direction: column;
+    width: 15vw;
+    height: 20vh;
     background: var(--background);
     margin-top: 1px;
-    overflow: hidden;
+    overflow-y: auto;
     position: absolute;
-    width: 15vw;
+    border: 1px solid var(--primary);
     z-index: 10;
 }
 
