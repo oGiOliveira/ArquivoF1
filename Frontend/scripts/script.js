@@ -76,41 +76,46 @@ document.addEventListener("click", function(event) {
     //fim da funcionalidades de fechar os modais
 
 //funcionalidade de menu wizard (passar pro proximo menu)
-const steps = document.querySelectorAll(".step");
-const tabs = document.querySelectorAll(".tab");
-let currentStep = 0;
+document.querySelectorAll(".modalForm").forEach(modal => {
+    const wizard = modal.querySelector('.wizard');
+    if (!wizard) return;
 
-function showStep(index) {
-    steps.forEach((step, i) => {
-        step.classList.remove("active");
-        if (i === index) {
-            step.classList.add("active");
-        }
-    });
-    tabs.forEach((tabs, i) => {
-        tabs.classList.remove("active");
-        if (i === index) {
-            tabs.classList.add("active");
-        }
-    });
+    const steps = wizard.querySelectorAll(".step");
+    const tabs = wizard.querySelectorAll(".tab");
+    let currentStep = 0;
 
-    currentStep = index;
-}
+    function showStep(index) {
+        steps.forEach((step, i) => {
+            step.classList.remove("active");
+            if (i === index) {
+                step.classList.add("active");
+            }
+        });
+        tabs.forEach((tabs, i) => {
+            tabs.classList.remove("active");
+            if (i === index) {
+                tabs.classList.add("active");
+            }
+        });
 
-//clique para mudar de aba
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-        const stepIndex = parseInt(tab.dataset.setp);
-        showStep(stepIndex);
-    });
-})
+        currentStep = index;
+    }
 
-//botao de prosseguir
-document.querySelectorAll(".nextBtn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        if (currentStep < steps.length - 1) {
-            currentStep++;
-            showStep(currentStep);
-        }
+    //clique para mudar de aba
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            const stepIndex = parseInt(tab.dataset.setp);
+            showStep(stepIndex);
+        });
+    })
+
+    //botao de prosseguir
+    wizard.querySelectorAll(".nextBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
     });
 });
